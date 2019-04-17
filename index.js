@@ -1,7 +1,3 @@
-//TODO: GET /survey/lectureId/resultId
-//TODO: POST /survey/lectureId/resultId
-//TODO: PUT /survey/lectureId/resultId
-
 const express = require('express');
 
 const config = require('./config/config');
@@ -18,6 +14,7 @@ app.use(express.json());
 app.use('/', indexRouter);
 app.use('/lectures', lecturesRouter);
 app.use('/results', resultsRouter);
+app.use('/survey', surveyRouter);
 
 app.listen(config.port, () => {
   console.log('Listening on port: ' + config.port)

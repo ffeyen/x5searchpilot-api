@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Joi = require('joi');
 
 const config = require('../config/config.js');
 const jsonData = require(config.locationLectureData);
