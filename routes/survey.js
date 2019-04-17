@@ -6,9 +6,6 @@ const config = require('../config/config.js');
 const schema = require('../model/validation.js');
 const surveyData = require(config.locationSurveyData);
 
-//TODO: POST /survey/lectureId/resultId
-//TODO: PUT /survey/lectureId/resultId
-
 router.get('/', (req, res) => {
     res.status(404).send("Error 404 not found");
     console.log('404 -> GET /survey/');
@@ -23,9 +20,9 @@ router.post('/:lectureId/:resultId', (req, res) => {
   if (req.params.lectureId == req.body.lectureId && req.params.resultId == req.body.resultId) {
     console.log("API/request IDs match (lecture: " + req.params.lectureId + "/" + req.body.lectureId + " - result: " + req.params.resultId + "/" + req.body.resultId + ")");
 
-    const valid = Joi.validate(req.body, schema);
+    const valCheck = Joi.validate(req.body, schema);
 
-    if (!valid.error) {
+    if (!valCheck.error) {
       //TODO: make a better data structure
       let submitBundle = {
         "lectureId": req.body.lectureId,
@@ -40,10 +37,11 @@ router.post('/:lectureId/:resultId', (req, res) => {
       res.send(submitBundle);
 
       //TODO: Push Submit to array surveyData.push()
+
       console.log('200 -> POST /survey/' + req.params.lectureId + '/' + req.params.resultId);
     } else {
       console.log('400 -> POST /survey/' + req.params.lectureId + '/' + req.params.resultId + " (data validation failed)");
-      res.status(400).send(valid.error.details[0].message);
+      res.status(400).send("Err 400: " + valCheck.error.details[0].message);
       return;
     }
   } else {
