@@ -1,8 +1,6 @@
-//TODO: GET /api/lectures/lectureId
-//TODO: GET /api/results/lectureId/resultId
-//TODO: GET /api/survey/lectureId/resultId
-//TODO: POST /api/survey/lectureId/resultId
-//TODO: PUT /api/survey/lectureId/resultId
+//TODO: GET /survey/lectureId/resultId
+//TODO: POST /survey/lectureId/resultId
+//TODO: PUT /survey/lectureId/resultId
 
 const express = require('express');
 

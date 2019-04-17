@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const config = require('../config/config.js');
-const jsonData = require(config.locationLectureData);
+const surveyData = require(config.locationSurveyData);
 
 router.get('/:lectureId/:resultId', (req, res) => {
   //const result = jsonData.lectures[req.params.lectureId].attributes.results[req.params.resultId];

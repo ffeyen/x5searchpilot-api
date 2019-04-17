@@ -16,8 +16,6 @@ router.get('/:lectureId', (req, res) => {
 });
 
 router.get('/:lectureId/:resultId', (req, res) => {
-  //const result = jsonData.lectures[req.params.lectureId].attributes.results[req.params.resultId];
-
   const lecture = jsonData.lectures.filter(c => {
     return c.id == req.params.lectureId;
   });
