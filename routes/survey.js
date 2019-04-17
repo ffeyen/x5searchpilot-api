@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Joi = require('joi');
+const fs = require('fs');
 
 const config = require('../config/config.js');
 const schema = require('../model/validation.js');
-const surveyData = require(config.locationSurveyData);
 
 router.get('/', (req, res) => {
     res.status(404).send("Error 404 not found");
@@ -33,6 +33,9 @@ router.post('/:lectureId/:resultId', (req, res) => {
         "submitDate": req.body.submitDate
       };
 
+      submitData(submitBundle);
+
+      console.log(fs.)
       res.header("Content-Type", "application/json")
       res.send(submitBundle);
 
@@ -50,5 +53,19 @@ router.post('/:lectureId/:resultId', (req, res) => {
     return;
   }
 });
+
+function submitData(dataObject) {
+  fs.readFile(config.locationSurveyData, 'utf-8', (err, data) => {
+    if (err) throw err;
+    
+    let dataArray = JSON.parse(data);
+    console.log(dataArray);
+    dataArray.push(dataObject);
+
+    console.log(dataArray);
+
+    console.log('pushed dataObject into dataArray')
+  });
+};
 
 module.exports = router;
