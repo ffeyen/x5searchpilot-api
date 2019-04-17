@@ -15,37 +15,41 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:lectureId/:resultId', (req, res) => {
-  //res.header("Content-Type", "application/json");
-  //res.send(JSON.stringify(result));
-
   res.status(404).send("Error 404 not found");
-
   console.log('404 -> GET /survey/' + req.params.lectureId + '/' + req.params.resultId);
 });
 
 router.post('/:lectureId/:resultId', (req, res) => {
-  //Input Validation Logic?
-  //res.status(400).send('Bad Request');
-  //const valid = Joi.validate(req.body, schema.submitVal);
   if (req.params.lectureId == req.body.lectureId && req.params.resultId == req.body.resultId) {
-    console.log("OK API/request IDs match (lecture: " + req.params.lectureId + "/" + req.body.lectureId + " - result: " + req.params.resultId + "/" + req.body.resultId + ")");
-  
-   let submitBundle = {
-      "lectureId": req.body.lectureId,
-      "resultId": req.body.resultId,
-      "radioFit": req.body.radioFit,
-      "radioSure": req.body.radioSure,
-      "textComment": req.body.textComment,
-      "submitDate": req.body.submitDate
-    };
-    res.send(submitBundle);
+    console.log("API/request IDs match (lecture: " + req.params.lectureId + "/" + req.body.lectureId + " - result: " + req.params.resultId + "/" + req.body.resultId + ")");
 
-    //Push Submit to array surveyData.push()
+    const valid = Joi.validate(req.body, schema);
 
-    console.log('-> POST /survey/' + req.params.lectureId + '/' + req.params.resultId);
+    if (!valid.error) {
+      //TODO: make a better data structure
+      let submitBundle = {
+        "lectureId": req.body.lectureId,
+        "resultId": req.body.resultId,
+        "radioFit": req.body.radioFit,
+        "radioSure": req.body.radioSure,
+        "textComment": req.body.textComment,
+        "submitDate": req.body.submitDate
+      };
+
+      res.header("Content-Type", "application/json")
+      res.send(submitBundle);
+
+      //TODO: Push Submit to array surveyData.push()
+      console.log('200 -> POST /survey/' + req.params.lectureId + '/' + req.params.resultId);
+    } else {
+      console.log('400 -> POST /survey/' + req.params.lectureId + '/' + req.params.resultId + " (data validation failed)");
+      res.status(400).send(valid.error.details[0].message);
+      return;
+    }
   } else {
     res.status(404).send("(Err: API parameters) API IDs don't match request body IDs");
     console.log("404 -> POST /survey/:lectureId/:resultId - IDs from API router and request body don't match (lecture: " + req.params.lectureId + "/" + req.body.lectureId + " - result: " + req.params.resultId + "/" + req.body.resultId + ")");
+    return;
   }
 });
 
