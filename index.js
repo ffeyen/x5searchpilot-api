@@ -15,6 +15,8 @@ const surveyRouter = require('./routes/survey');
 
 const app = express();
 
+app.use(express.json());
+
 app.use('/', indexRouter);
 app.use('/lectures', lecturesRouter);
 app.use('/results', resultsRouter);

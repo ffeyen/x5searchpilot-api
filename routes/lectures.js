@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const jsonData = require('../data/dummy-combined.json');
+const config = require('../config/config.js');
+const jsonData = require(config.locationLectureData);
 
 router.get('/', (req, res) => {  
   const lecture = jsonData.lectures;
