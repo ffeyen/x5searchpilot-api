@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   res.header("Content-Type", "application/json");
   res.send(JSON.stringify(lecture));
 
-  console.log('GET /lectures/');
+  console.log('200 -> GET /lectures/');
 });
 
 router.get('/:lectureId', (req, res) => {
@@ -25,7 +25,7 @@ router.get('/:lectureId', (req, res) => {
     res.header("Content-Type", "application/json");
     res.send(JSON.stringify(lecture));
 
-    console.log('GET /lectures/' + req.params.lectureId);
+    console.log('200 -> GET /lectures/' + req.params.lectureId);
   };
 });
 
