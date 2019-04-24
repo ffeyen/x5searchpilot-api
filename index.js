@@ -8,8 +8,11 @@ const resultsRouter = require('./routes/results');
 const surveyRouter = require('./routes/survey');
 
 const app = express();
+const cors = require('cors');
 
 app.use(express.json());
+app.use(cors());
+app.options('*', cors());
 
 app.use('/', indexRouter);
 app.use('/lectures', lecturesRouter);

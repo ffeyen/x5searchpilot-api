@@ -33,9 +33,8 @@ router.post('/:lectureId/:resultId', (req, res) => {
         "submitDate": req.body.submitDate
       };
 
-      submitData(submitBundle);
+      //submitData(submitBundle);
 
-      console.log(fs.)
       res.header("Content-Type", "application/json")
       res.send(submitBundle);
 

@@ -12,6 +12,7 @@
     "express": "^4.16.4"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "joi": "^14.3.1"
   }
 }
