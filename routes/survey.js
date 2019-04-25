@@ -6,9 +6,15 @@ const fs = require('fs');
 const config = require('../config/config.js');
 const schema = require('../model/validation.js');
 
+const filePath = __dirname + "/" + config.locationSurveyData;
+
+var dataArray;
+loadData();
+
 router.get('/', (req, res) => {
     res.status(404).send("Error 404 not found");
     console.log('404 -> GET /survey/');
+    console.log(dataArray);
 });
 
 router.get('/:lectureId/:resultId', (req, res) => {
@@ -32,13 +38,14 @@ router.post('/:lectureId/:resultId', (req, res) => {
         "textComment": req.body.textComment,
         "submitDate": req.body.submitDate
       };
-
-      //submitData(submitBundle);
+      
+      let fileBundle = dataArray;
+      fileBundle.push(submitBundle);
+      
+      submitData(JSON.stringify(fileBundle, null, 2));
 
       res.header("Content-Type", "application/json")
       res.send(submitBundle);
-
-      //TODO: Push Submit to array surveyData.push()
 
       console.log('200 -> POST /survey/' + req.params.lectureId + '/' + req.params.resultId);
     } else {
@@ -53,17 +60,26 @@ router.post('/:lectureId/:resultId', (req, res) => {
   }
 });
 
-function submitData(dataObject) {
-  fs.readFile(config.locationSurveyData, 'utf-8', (err, data) => {
-    if (err) throw err;
-    
-    let dataArray = JSON.parse(data);
-    console.log(dataArray);
-    dataArray.push(dataObject);
+function loadData() {
+  fs.readFile(filePath, 'utf-8', (err, data) => {
+    if (err) {
+      console.log('fs: error loading surveyData')
+      console.log(err);
+    } else {
+      dataArray = JSON.parse(data);
+      console.log('fs: success loading surveyData')
+    }
+  });
+};
 
-    console.log(dataArray);
-
-    console.log('pushed dataObject into dataArray')
+function submitData(fileBundle) {
+  fs.writeFile(filePath, fileBundle, 'utf-8', (err) => {
+    if (err) {
+      console.log('fs: error while writing data')
+      console.log(err);
+    } else {
+      console.log('fs: wrote submitBundle to file')
+    }
   });
 };
 
