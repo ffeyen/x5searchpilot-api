@@ -5,7 +5,6 @@ const submitVal = {
     resultId: Joi.required(),
     radioFit: Joi.required(),
     radioSure: Joi.required(),
-    textComment: Joi.string(),
     submitDate: Joi.string().required()
 };
 
