@@ -1,4 +1,6 @@
 const express = require('express');
+const app = express();
+const cors = require('cors');
 
 const config = require('./config/config');
 
@@ -7,9 +9,9 @@ const lecturesRouter = require('./routes/lectures');
 const resultsRouter = require('./routes/results');
 const surveyRouter = require('./routes/survey');
 
-const app = express();
-
 app.use(express.json());
+app.use(cors());
+app.options('*', cors());
 
 app.use('/', indexRouter);
 app.use('/lectures', lecturesRouter);
