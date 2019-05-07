@@ -30,6 +30,7 @@ router.post('/:lectureId/:resultId', (req, res) => {
 
     if (!valCheck.error) {
       let submitBundle = {
+        "uuid": req.body.uuid,
         "lectureId": req.body.lectureId,
         "resultId": req.body.resultId,
         "submitDate": req.body.submitDate,
