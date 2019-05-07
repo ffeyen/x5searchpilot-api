@@ -6,7 +6,8 @@ const submitVal = {
     radioFit: Joi.number().integer().required(),
     radioSure: Joi.number().integer().required(),
     textComment: Joi.allow(),
-    submitDate: Joi.string().required()
+    submitDate: Joi.string().required(),
+    uuid: Joi.string().required()
 };
 
 module.exports = submitVal;

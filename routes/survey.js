@@ -29,7 +29,6 @@ router.post('/:lectureId/:resultId', (req, res) => {
     const valCheck = Joi.validate(req.body, schema);
 
     if (!valCheck.error) {
-      //TODO: make a better data structure
       let submitBundle = {
         "lectureId": req.body.lectureId,
         "resultId": req.body.resultId,
