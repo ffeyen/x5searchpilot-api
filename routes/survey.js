@@ -33,12 +33,11 @@ router.post('/:lectureId/:resultId', (req, res) => {
         "uuid": req.body.uuid,
         "lectureId": req.body.lectureId,
         "resultId": req.body.resultId,
+        "localStorageKey": req.body.localStorageKey,
         "submitDate": req.body.submitDate,
-        "surveyData": {
-          "radioFit": req.body.radioFit,
-          "radioSure": req.body.radioSure,
-          "textComment": req.body.textComment
-        }
+        "radioFit": req.body.radioFit,
+        "radioSure": req.body.radioSure,
+        "textComment": req.body.textComment
       };
       
       let fileBundle = dataArray;
