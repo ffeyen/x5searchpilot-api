@@ -29,16 +29,16 @@ router.post('/:lectureId/:resultId', (req, res) => {
     const valCheck = Joi.validate(req.body, schema);
 
     if (!valCheck.error) {
-      //TODO: make a better data structure
       let submitBundle = {
+        "uuid": req.body.uuid,
         "lectureId": req.body.lectureId,
         "resultId": req.body.resultId,
+        "localStorageKey": req.body.localStorageKey,
         "submitDate": req.body.submitDate,
-        "surveyData": {
-          "radioFit": req.body.radioFit,
-          "radioSure": req.body.radioSure,
-          "textComment": req.body.textComment
-        }
+        "radioFit": req.body.radioFit,
+        "radioSure": req.body.radioSure,
+        "textComment": req.body.textComment,
+        "urlClickCount": req.body.urlClickCount
       };
       
       let fileBundle = dataArray;
