@@ -8,7 +8,8 @@ const submitVal = {
     submitDate: Joi.string().required(),
     radioFit: Joi.number().integer().required(),
     radioSure: Joi.number().integer().required(),
-    textComment: Joi.allow()
+    textComment: Joi.allow(),
+    urlClickCount: Joi.number().integer()
 };
 
 module.exports = submitVal;

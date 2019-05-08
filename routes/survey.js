@@ -37,7 +37,8 @@ router.post('/:lectureId/:resultId', (req, res) => {
         "submitDate": req.body.submitDate,
         "radioFit": req.body.radioFit,
         "radioSure": req.body.radioSure,
-        "textComment": req.body.textComment
+        "textComment": req.body.textComment,
+        "urlClickCount": req.body.urlClickCount
       };
       
       let fileBundle = dataArray;
