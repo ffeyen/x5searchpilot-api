@@ -9,7 +9,8 @@ const submitVal = {
     radioFit: Joi.number().integer(),
     radioSure: Joi.number().integer(),
     textComment: Joi.allow(),
-    urlClickCount: Joi.number().integer()
+    urlClickCount: Joi.number().integer(),
+    isDuplicate: Joi.boolean().required()
 };
 
 module.exports = submitVal;
