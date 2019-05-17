@@ -6,8 +6,8 @@ const submitVal = {
     resultId: Joi.number().integer().required(),
     localStorageKey: Joi.string().required(),
     submitDate: Joi.string().required(),
-    radioFit: Joi.number().integer().required(),
-    radioSure: Joi.number().integer().required(),
+    radioFit: Joi.number().integer(),
+    radioSure: Joi.number().integer(),
     textComment: Joi.allow(),
     urlClickCount: Joi.number().integer()
 };
