@@ -1,5 +1,5 @@
 {
-  "0": {
+  "lectures": [{
     "type": "lectures",
     "id": "1",
     "attributes": {
@@ -306,7 +306,7 @@
       ]
     }
   },
-  "1": {
+  {
     "type": "lectures",
     "id": "2",
     "attributes": {
@@ -523,8 +523,7 @@
         }
       ]
     }
-  },
-  "2": {
+  },{
     "type": "lectures",
     "id": "3",
     "attributes": {
@@ -818,7 +817,7 @@
       ]
     }
   },
-  "3": {
+  {
     "type": "lectures",
     "id": "4",
     "attributes": {
@@ -1107,7 +1106,7 @@
       ]
     }
   },
-  "4": {
+  {
     "type": "lectures",
     "id": "5",
     "attributes": {
@@ -1391,7 +1390,7 @@
       ]
     }
   },
-  "5": {
+  {
     "type": "lectures",
     "id": "6",
     "attributes": {
@@ -1696,7 +1695,7 @@
       ]
     }
   },
-  "6": {
+  {
     "type": "lectures",
     "id": "7",
     "attributes": {
@@ -1988,7 +1987,7 @@
       ]
     }
   },
-  "7": {
+  {
     "type": "lectures",
     "id": "8",
     "attributes": {
@@ -2294,7 +2293,7 @@
       ]
     }
   },
-  "8": {
+  {
     "type": "lectures",
     "id": "9",
     "attributes": {
@@ -2580,7 +2579,7 @@
       ]
     }
   },
-  "9": {
+  {
     "type": "lectures",
     "id": "10",
     "attributes": {
@@ -2887,7 +2886,7 @@
       ]
     }
   },
-  "10": {
+  {
     "type": "lectures",
     "id": "11",
     "attributes": {
@@ -3176,7 +3175,7 @@
       ]
     }
   },
-  "11": {
+  {
     "type": "lectures",
     "id": "12",
     "attributes": {
@@ -3468,7 +3467,7 @@
       ]
     }
   },
-  "12": {
+  {
     "type": "lectures",
     "id": "13",
     "attributes": {
@@ -3701,7 +3700,7 @@
       ]
     }
   },
-  "13": {
+  {
     "type": "lectures",
     "id": "14",
     "attributes": {
@@ -3959,7 +3958,7 @@
       ]
     }
   },
-  "14": {
+  {
     "type": "lectures",
     "id": "15",
     "attributes": {
@@ -4251,7 +4250,7 @@
       ]
     }
   },
-  "15": {
+  {
     "type": "lectures",
     "id": "16",
     "attributes": {
@@ -4573,7 +4572,7 @@
       ]
     }
   },
-  "16": {
+  {
     "type": "lectures",
     "id": "17",
     "attributes": {
@@ -4871,7 +4870,7 @@
       ]
     }
   },
-  "17": {
+  {
     "type": "lectures",
     "id": "18",
     "attributes": {
@@ -5123,7 +5122,7 @@
       ]
     }
   },
-  "18": {
+  {
     "type": "lectures",
     "id": "19",
     "attributes": {
@@ -5409,7 +5408,7 @@
       ]
     }
   },
-  "19": {
+  {
     "type": "lectures",
     "id": "20",
     "attributes": {
@@ -5710,7 +5709,7 @@
       ]
     }
   },
-  "20": {
+  {
     "type": "lectures",
     "id": "21",
     "attributes": {
@@ -6015,7 +6014,7 @@
       ]
     }
   },
-  "21": {
+  {
     "type": "lectures",
     "id": "22",
     "attributes": {
@@ -6323,5 +6322,5 @@
         }
       ]
     }
-  }
+  }]
 }
