@@ -5,6 +5,7 @@ const fs = require('fs');
 
 const config = require('../config/config.js');
 const schema = require('../model/validation.js');
+const jsonData = require(config.locationLectureData);
 
 const filePath = __dirname + "/" + config.locationSurveyData;
 
@@ -24,6 +25,9 @@ router.get('/:lectureId/:resultId', (req, res) => {
 
 router.post('/:lectureId/:resultId', (req, res) => {
   if (req.params.lectureId == req.body.lectureId && req.params.resultId == req.body.resultId) {
+    const lectureId = req.params.resultId;
+    const resultId = req.body.resultId;
+    
     console.log("API/request IDs match (lecture: " + req.params.lectureId + "/" + req.body.lectureId + " - result: " + req.params.resultId + "/" + req.body.resultId + ")");
 
     const valCheck = Joi.validate(req.body, schema);
@@ -39,8 +43,12 @@ router.post('/:lectureId/:resultId', (req, res) => {
         "radioSure": req.body.radioSure,
         "textComment": req.body.textComment,
         "urlClickCount": req.body.urlClickCount,
-        "isDuplicate": req.body.isDuplicate
+        "isDuplicate": req.body.isDuplicate,
+        "modelType": jsonData.lectures[lectureId].attributes.results[resultId].model_type,
+        "weight": jsonData.lectures[lectureId].attributes.results[resultId].weight,
+        "requestTime": jsonData.lectures[lectureId].attributes.results[resultId].request_time
       };
+      console.log(submitBundle)
       
       let fileBundle = dataArray;
       fileBundle.push(submitBundle);
