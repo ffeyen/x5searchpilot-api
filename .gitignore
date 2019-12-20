@@ -8,6 +8,7 @@ lerna-debug.log*
 
 # survey-data
 /data/survey-data.json
+/data/19*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
