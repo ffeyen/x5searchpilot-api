@@ -27,9 +27,6 @@ router.post('/:lectureId/:resultId', (req, res) => {
   if (req.params.lectureId == req.body.lectureId && req.params.resultId == req.body.resultId) {
     const lectureId = req.body.lectureId;
     const resultId = req.body.resultId;
-
-    console.log(lectureId);
-    console.log(resultId)
     
     console.log("API/request IDs match (lecture: " + req.params.lectureId + "/" + req.body.lectureId + " - result: " + req.params.resultId + "/" + req.body.resultId + ")");
 
