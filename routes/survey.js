@@ -48,7 +48,6 @@ router.post('/:lectureId/:resultId', (req, res) => {
         "weight": jsonData.lectures[lectureId].attributes.results[resultId].weight,
         "requestTime": jsonData.lectures[lectureId].attributes.results[resultId].request_time
       };
-      console.log(submitBundle)
       
       let fileBundle = dataArray;
       fileBundle.push(submitBundle);
