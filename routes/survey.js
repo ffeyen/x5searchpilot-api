@@ -77,7 +77,7 @@ function loadData() {
       console.log('fs: error loading surveyData')
       console.log(err);
     } else {
-      dataArray = JSON.parse(JSON.stringify(data));
+      dataArray = JSON.parse(data);
       console.log('fs: success loading surveyData')
     }
   });
